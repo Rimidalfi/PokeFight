@@ -1,14 +1,16 @@
 import express from 'express';
 import pokeRouter from './router/pokeRouter.js'
 import cors from 'cors';
+import fs from 'fs';
 
-const PORT = 8080 || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
+const html = fs.readFileSync('index.html','utf8')
 
 app.use(cors());
 
-app.get('/',(req,res)=>res.send(`<h1>🐢 🦐 🐳</h1>`));
+app.get('/',(req,res)=>res.type('html').send(html));
 
 app.use('/pokemon',pokeRouter);
 
-app.listen(PORT,()=>console.log(`Server runs on http://localhost:${PORT}`));
+app.listen(PORT,()=>console.log(`Server runs on Port: ${PORT}`));

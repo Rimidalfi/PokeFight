@@ -1,10 +1,13 @@
 import express from "express";
 import pokeViews from "../controller/pokeController.js"
 
-const router = express.Router();
+const pokeRouter = express.Router();
 
-router.get('/', pokeViews.viewAll);
-router.get('/:id', pokeViews.viewSpecific);
-router.get('/:id/:info', pokeViews.viewSpecificDetail);
+pokeRouter.get('/', pokeViews.viewAll);
+pokeRouter.get('/:id', pokeViews.viewSpecific);
+pokeRouter.get('/:id/:info', pokeViews.viewSpecificDetail);
 
-export default router;
+const pokeTypeRouter = express.Router();
+pokeTypeRouter.get('/', pokeViews.viewTypes);
+
+export {pokeRouter,pokeTypeRouter};

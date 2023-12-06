@@ -35,3 +35,9 @@ You can make three different calls:
     `/pokemon/1/type   >>   ["Grass","Poison"]`
 
     `/pokemon/1/base   >>   {"HP":45,"Attack":49,"Defense":49,"Sp. Attack":65,"Sp. Defense":65,"Speed":45}`
+
+---
+
+4.  `https://pokefightapi.onrender.com/types`
+
+    Delivers a JSON file with all TYPES of the available Pokemon entries.

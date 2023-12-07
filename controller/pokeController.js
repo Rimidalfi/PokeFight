@@ -1,4 +1,5 @@
 import {readFile} from 'fs/promises';
+import connectMongo from '../mongo/leaderboard.js';
 
 async function readJsonFile() {
     try {
@@ -47,6 +48,14 @@ const pokeViews = {
             res.json({types:typeList})
             });
     },
+    viewsResults: (req,res)=>{
+        connectMongo().find({}).then((data)=>data ? res.json(data) : res.json({msg:"Error"}))
+        
+    },
+    writeResults: (req,res)=>{ 
+        const {name, pokeID, score, wins, loses} = req.body;
+        res.status(200).json({msg:"SUCCESS 🚀",entry:{name: name, pokeID:pokeID, score:score, wins: wins, loses: loses}})
+    }
 }
 
 export default pokeViews;

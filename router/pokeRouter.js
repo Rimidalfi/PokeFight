@@ -10,4 +10,8 @@ pokeRouter.get('/:id/:info', pokeViews.viewSpecificDetail);
 const pokeTypeRouter = express.Router();
 pokeTypeRouter.get('/', pokeViews.viewTypes);
 
-export {pokeRouter,pokeTypeRouter};
+const pokeGameRouter = express.Router();
+pokeGameRouter.post('/save', pokeViews.writeResults);
+pokeGameRouter.get('/leaderboard', pokeViews.viewsResults);
+
+export {pokeRouter,pokeTypeRouter,pokeGameRouter};

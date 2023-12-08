@@ -49,7 +49,7 @@ const pokeViews = {
             });
     },
     viewsResults: (req,res)=>{
-        connectMongo().find({}).then((data)=>data ? res.json(data) : res.json({msg:"Error"}))
+        connectMongo.find({}).then((data)=>data ? res.json(data) : res.json({msg:"Error"}))
         
     },
     writeResults: (req,res)=>{ 
